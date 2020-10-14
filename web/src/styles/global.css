@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-origin: padding-box;
+}
+
+body {
+    color: #fff;
+    background: #ebf2f5;
+}
+
+body, input, button, textarea, select {
+    font: 600 18px Nunito, sans-serif;
+}

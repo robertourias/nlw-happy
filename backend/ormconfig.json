@@ -1,11 +1,10 @@
 {
-    "name": "default",
     "type": "sqlite",
     "database": "./src/database/database.sqlite",
     "migrations": [
         "./src/database/migrations/*.ts"
     ],
     "cli": {
-        "migrationDir": "./src/database/migrations"
+        "migrationsDir": "./src/database/migrations"
     }
 }

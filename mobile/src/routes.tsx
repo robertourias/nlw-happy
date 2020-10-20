@@ -13,7 +13,7 @@ const { Navigator, Screen } = createStackNavigator();
 export default function Routes() {
     return (
         <NavigationContainer>
-            <Navigator screenOptions={{ headerShown: false }}>
+            <Navigator screenOptions={{ headerShown: false, cardStyle: {backgroundColor: '#f2f3f5'} }}>
                 <Screen name="OrphanageMap" component={OrphanageMap} />
                 <Screen name="OrphanageDetails" component={OrphanageDetails} />
                 <Screen name="SelectMapPosition" component={SelectMapPosition} />

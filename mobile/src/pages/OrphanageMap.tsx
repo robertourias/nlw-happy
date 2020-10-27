@@ -16,7 +16,7 @@ interface Orphanage {
 }
 
 export default function OrphanageMap() {
-  const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
+    const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
     const navigation = useNavigation();
     useEffect(() => {
       api.get('orphanages').then(response => {

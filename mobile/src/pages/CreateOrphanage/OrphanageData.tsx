@@ -3,6 +3,7 @@ import { ScrollView, View, StyleSheet, Switch, Text, TextInput, TouchableOpacity
 import { Feather } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
 import { useRoute } from '@react-navigation/native';
+import * as ImagePicker from 'expo-image-picker';
 
 interface OrphanageDataRouteParams {
   position: {
@@ -33,6 +34,23 @@ export default function OrphanageData() {
     // }
   }
 
+  async function handleSelectImages() {
+    const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
+
+    if(!status) {
+      alert('Eita, precisamos de acesso as suas fotos!');
+      return;
+    }
+
+    const result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      quality: 1,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+    });
+
+    console.log(result);
+  }
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ padding: 24 }}>
       <Text style={styles.title}>Dados</Text>
@@ -58,7 +76,7 @@ export default function OrphanageData() {
       />
 
       <Text style={styles.label}>Fotos</Text>
-      <TouchableOpacity style={styles.imagesInput} onPress={() => {}}>
+      <TouchableOpacity style={styles.imagesInput} onPress={handleSelectImages}>
         <Feather name="plus" size={24} color="#15B6D6" />
       </TouchableOpacity>
 
